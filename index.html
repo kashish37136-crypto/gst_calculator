@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST Price Calculator — Calculate, Subtract & Recalculate</title>
+    <meta name="description"
+        content="A sleek GST price calculator that extracts the base price from a GST-inclusive amount, lets you subtract a discount, and re-applies 18% GST instantly.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Animated background blobs -->
+    <div class="bg-blobs" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <a href="index.html" class="nav-link active">Calculator</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="math.html" class="nav-link">Math Logic</a>
+        </nav>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+            </div>
+            <h1>GST Price Calculator</h1>
+            <p class="subtitle">Extract base price, apply discounts &amp; recalculate 18% GST</p>
+        </header>
+
+        <!-- Calculator Card -->
+        <section class="calc-card" id="calculator">
+            <!-- Step 1: Enter GST-inclusive price -->
+            <div class="step" id="step-1">
+                <div class="step-badge">Step 1</div>
+                <label for="gst-price">Enter price including 18% GST — RS1/SS1</label>
+                <div class="input-group">
+                    <span class="currency">₹</span>
+                    <input type="text" id="gst-price" inputmode="decimal" placeholder="e.g. 1180" autocomplete="off">
+                </div>
+                <p class="error-msg" id="error-1" role="alert"></p>
+                <button class="btn btn-primary" id="btn-calculate" type="button">
+                    Calculate Base Price
+                    <span class="btn-icon">→</span>
+                </button>
+            </div>
+
+            <!-- Step 2: Breakdown + Subtract -->
+            <div class="step hidden" id="step-2">
+                <!-- Price breakdown -->
+                <div class="breakdown-card">
+                    <div class="breakdown-row">
+                        <span class="label">GST Inclusive Price</span>
+                        <span class="value" id="out-gst-price">—</span>
+                    </div>
+                    <div class="breakdown-row highlight">
+                        <span class="label">Base Price <small>(without GST)</small></span>
+                        <span class="value" id="out-base-price">—</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="label">GST Amount <small>(18%)</small></span>
+                        <span class="value" id="out-gst-amount">—</span>
+                    </div>
+                </div>
+
+                <div class="step-badge">Step 2</div>
+                <label for="subtract-amount">Amount to subtract from base price</label>
+                <div class="input-group">
+                    <span class="currency">₹</span>
+                    <input type="text" id="subtract-amount" inputmode="decimal" placeholder="e.g. 100"
+                        autocomplete="off">
+                </div>
+                <p class="error-msg" id="error-2" role="alert"></p>
+                <button class="btn btn-primary" id="btn-subtract" type="button">
+                    Apply &amp; Recalculate GST
+                    <span class="btn-icon">→</span>
+                </button>
+            </div>
+
+            <!-- Step 3: Final Result -->
+            <div class="step hidden" id="step-3">
+                <div class="result-card">
+                    <div class="result-header">Final Calculation</div>
+                    <div class="result-rows">
+                        <div class="result-row">
+                            <span>Original Base Price</span>
+                            <span id="res-original-base">—</span>
+                        </div>
+                        <div class="result-row">
+                            <span>Amount Subtracted</span>
+                            <span id="res-subtract" class="subtract-val">—</span>
+                        </div>
+                        <div class="result-row">
+                            <span>New Base Price</span>
+                            <span id="res-new-base">—</span>
+                        </div>
+                        <div class="result-row">
+                            <span>GST (18%)</span>
+                            <span id="res-gst">—</span>
+                        </div>
+                    </div>
+                    <div class="result-total">
+                        <span>Final Price with GST</span>
+                        <span id="res-final">—</span>
+                    </div>
+                </div>
+
+                <button class="btn btn-secondary" id="btn-reset" type="button">
+                    <span class="btn-icon">↺</span>
+                    Start Over
+                </button>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>GST rate used: <strong>18%</strong> &nbsp;|&nbsp; All values rounded to 2 decimal places</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

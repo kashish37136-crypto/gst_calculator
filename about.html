@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — GST Price Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .about-text {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .about-text strong {
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Animated background blobs -->
+    <div class="bg-blobs" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <a href="index.html" class="nav-link">Calculator</a>
+            <a href="about.html" class="nav-link active">About</a>
+            <a href="math.html" class="nav-link">Math Logic</a>
+        </nav>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+            </div>
+            <h1>About This Tool</h1>
+            <p class="subtitle">Learn more about the GST Calculator</p>
+        </header>
+
+        <!-- Content Card -->
+        <section class="calc-card">
+            <h2 style="font-size: 1.2rem; margin-bottom: 16px; color: var(--text-primary);">Why we built this</h2>
+            <p class="about-text" style="color: var(--accent); font-weight: 500; font-size: 1rem;">
+                Created by <strong>Ashish Kumar</strong>
+            </p>
+            <p class="about-text">
+                The <strong>GST Price Calculator</strong> was designed to help businesses and individuals quickly
+                extract actual base prices from total amounts that already include Goods and Services Tax.
+            </p>
+            <p class="about-text">
+                Instead of doing complex manual math calculations to reverse-engineer the 18% GST addition, this tool
+                handles it automatically with perfect precision—allowing you to deduct discounts securely before
+                recalculating the final price point.
+            </p>
+            <div class="result-card" style="margin-top: 24px;">
+                <div class="result-header">Tech Stack</div>
+                <div class="result-rows">
+                    <div class="result-row">
+                        <span>Frontend</span>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="result-row">
+                        <span>Styling</span>
+                        <span>Vanilla CSS3 </span>
+                    </div>
+                    <div class="result-row">
+                        <span>Logic</span>
+                        <span>JavaScript (ES6)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>GST rate used: <strong>18%</strong> &nbsp;|&nbsp; All values rounded to 2 decimal places</p>
+        </footer>
+    </main>
+</body>
+
+</html>
